@@ -1,0 +1,10 @@
+/.idea/
+
+/an-timber-backend/.idea/
+/an-timber-backend/node_modules/
+/an-timber-frontend/.idea/
+/an-timber-frontend/build/
+/an-timber-frontend/node_modules/
+/an-timber-frontend/src/text/text.js
+/an-timber-frontend/src/img/
+/an-timber-frontend/public/
