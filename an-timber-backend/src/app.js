@@ -8,7 +8,7 @@ app.use(cors({
 }))
 require("./routes").routes(app);
 console.log(process.env.RENDER_EXTERNAL_URL)
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 80;
 
 const WEB_URL = process.env.RENDER_EXTERNAL_URL;
 
