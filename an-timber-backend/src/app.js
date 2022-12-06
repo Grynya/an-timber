@@ -9,7 +9,7 @@ app.use(cors({
 require("./routes").routes(app);
 const port = process.env.PORT || 5000;
 
-const WEB_URL = 'https://an-timber-backend.onrender.com';
+const WEB_URL = process.env.RENDER_EXTERNAL_URL;
 
 app.use("/viber/webhook", bot.middleware());
 
