@@ -1,4 +1,4 @@
-import Button from "@mui/material/Button";
+import Button from './Button';
 import * as React from "react";
 
 export default function OrderButton(props) {

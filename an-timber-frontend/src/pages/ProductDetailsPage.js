@@ -3,8 +3,6 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Markdown from "../components/Markdown";
 import {text} from "../text/text.js"
-import {ThemeProvider} from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -13,14 +11,14 @@ import {useLocation} from "react-router-dom";
 import ContactUsPopUp from "../components/ContactUsPopUp";
 import SuccessAlert from "../components/alerts/SuccessAlert";
 import ErrorAlert from "../components/alerts/ErrorAlert";
-import {theme} from "../style/theme";
 import BackButton from "../components/buttons/BackButton";
-import Divider from "@mui/material/Divider";
 import OrderButton from "../components/buttons/OrderButton";
 import Box from "@mui/material/Box";
 import {LinearProgress} from "@mui/material";
+import withRoot from "../style/withRoot";
+import theme from "../style/theme";
 
-export default function ProductDetailsPage() {
+function ProductDetailsPage() {
     const {state} = useLocation();
     const [product] = useState(text.products[state.productIdx])
     const [openPopUp, setOpenPopUp] = useState(false)
@@ -29,8 +27,7 @@ export default function ProductDetailsPage() {
     const [hiddenProgress, setHiddenProgress] =  useState(true)
 
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline/>
+        <React.Fragment>
             <Header/>
             <Container maxWidth="lg" sx={{minHeight: "calc(80vh)"}}>
                 <main>
@@ -41,13 +38,7 @@ export default function ProductDetailsPage() {
                                     productTitle={product.title}
                                     setHiddenProgress={setHiddenProgress}
                     />
-                    <SuccessAlert open={openSuccess} setOpen={setOpenSuccess} message={"Ваш запит відправлено у обробку"}/>
-                    <ErrorAlert open={openError} setOpen={setOpenError} message={"Сталася помилка"}/>
-                    <Box sx={{ width: '100%', mb:3}} hidden={hiddenProgress}>
-                        <LinearProgress color={'primary'}/>
-                    </Box>
-                    <BackButton/>
-                    <Grid container spacing={5} sx={{mt: 1}}>
+                    <Grid container sx={{mt: 20}}>
                         <Grid
                             item
                             xs={12}
@@ -55,21 +46,30 @@ export default function ProductDetailsPage() {
                             sx={{
                                 '& .markdown': {
                                     py: 3,
-                                },
-                            }}
+                                }
+                        }
+                        }
                         >
-                            <Typography variant="h5" gutterBottom>
-                                <Markdown>{product.title}</Markdown>
+                            <SuccessAlert open={openSuccess} setOpen={setOpenSuccess} message={"Ваш запит відправлено у обробку"}/>
+                            <ErrorAlert open={openError} setOpen={setOpenError} message={"Сталася помилка"}/>
+                            <Box sx={{ width: '100%', mb:3,}} hidden={hiddenProgress}>
+                                <LinearProgress color={'warning'}/>
+                            </Box>
+                            <Typography color="inherit" align="center" variant="h4">
+                                {product.title}
                             </Typography>
-                            <Divider color="primary" sx={{borderBottomWidth: 1}}/>
                             <Grid container alignItems="center" justifyContent="space-between"
                                   sx={{p:2, textAlign: 'left'}}
                             >
                             <Grid item lg={7} md={7} xs={12}>
+                                <Typography color="inherit" variant="subtitle1">
                                 <Markdown className="markdown">
                                     {product.desc}
                                 </Markdown>
+                                </Typography>
                                 <OrderButton setOpenPopUp={setOpenPopUp}/>
+                                <br/>
+                                <BackButton/>
                             </Grid>
                                 <Grid
                                     item lg={5} md={5} xs={12}
@@ -91,6 +91,7 @@ export default function ProductDetailsPage() {
                 </main>
             </Container>
             <Footer/>
-        </ThemeProvider>
+        </React.Fragment>
     );
 }
+export default withRoot(ProductDetailsPage);

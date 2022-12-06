@@ -21,13 +21,14 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
+    "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
     "react-swipeable-views": "^0.14.0",
     "react-swipeable-views-utils": "^0.14.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "update-bucket": "react-scripts build && aws s3 sync ./build s3://an-timber/ --profile default"
+    "update-bucket": "react-scripts build && aws s3 sync ./build s3://an-timber-demo/ --profile default"
   },
   "eslintConfig": {
     "extends": [

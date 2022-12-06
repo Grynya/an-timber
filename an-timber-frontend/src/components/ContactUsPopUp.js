@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -10,7 +9,8 @@ import {Checkbox, FormControlLabel} from "@mui/material";
 import {useState} from "react";
 import Service from "../services/Service";
 import {ThemeProvider} from "@mui/material/styles";
-import {theme} from "../style/theme";
+import theme from "../style/theme";
+import Button from "./buttons/Button";
 
 const isPhone = (phone) => {
     const re = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s/0-9]*$/
@@ -87,8 +87,8 @@ export default function ContactUsPopUp(props) {
                 props.setOpen(false);
             }}>
                 <DialogTitle
-                    style={{backgroundColor: theme.palette.background.default}}>Замовити {props.productTitle}</DialogTitle>
-                <DialogContent style={{backgroundColor: theme.palette.background.default}}>
+                    sx={{backgroundColor: theme.palette.secondary.light}}>Замовити {props.productTitle}</DialogTitle>
+                <DialogContent sx={{backgroundColor: theme.palette.secondary.light}}>
                     <DialogContentText>
                         Залишіть свої контакти, і ми зв'яжемося з Вами.
                     </DialogContentText>
@@ -145,14 +145,21 @@ export default function ContactUsPopUp(props) {
                                                          onChange={handleChange}
                     />} label="Згоден(а) на обробку особистих даних"/>
                 </DialogContent>
-                <DialogActions style={{backgroundColor: theme.palette.background.default}}>
+                <DialogActions sx={{backgroundColor: theme.palette.secondary.light}}>
                     <Button
+                        size="small"
+                        variant="contained"
+                        color="warning"
+                        sx={{color:theme.palette.primary.main}}
                         disabled={formValue.isAgreed === false || formValue.name === "" || formValue.phone === "" ||
                             formValueError.name !== "" || formValueError.phone !== ""}
                         onClick={async () => {
                             await sendFormValue()
                         }}>Надіслати</Button>
-                    <Button color="error" onClick={() => {
+                    <Button
+                    variant="outlined"
+                        color="error"
+                            size="small" onClick={() => {
                         props.setOpen(false)
                     }}>Закрити</Button>
                 </DialogActions>

@@ -4,18 +4,15 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Markdown from "../components/Markdown";
 import {text} from "../text/text.js"
-import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import {theme} from "../style/theme";
-import {ThemeProvider} from "@mui/material/styles";
 import BackButton from "../components/buttons/BackButton";
+import withRoot from "../style/withRoot";
 
-export default function Delivery() {
+function Delivery() {
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline/>
+        <React.Fragment>
                 <Header/>
             <Container maxWidth="lg" sx={{minHeight: "calc(80vh)"}}>
             <main>
@@ -27,20 +24,23 @@ export default function Delivery() {
                                 '& .markdown': {
                                     py: 3,
                                 },
+                                pt:20
                             }}
                         >
-                            <Typography variant="h5" gutterBottom>
+                            <Typography color="inherit" align="center" variant="h4">
                                 Доставка
                             </Typography>
-                            <Divider color="primary" sx={{ borderBottomWidth: 1 }}/>
-                            <Markdown className="markdown">
-                                {text.delivery}
-                            </Markdown>
-                            <BackButton sx={{mt:2}}/>
+                            <Typography color="inherit" variant="subtitle1">
+                                <Markdown className="markdown">
+                                    {text.delivery}
+                                </Markdown>
+                            </Typography>
+                            <BackButton/>
                         </Grid>
                 </main>
             </Container>
             <Footer/>
-        </ThemeProvider>
+        </React.Fragment>
     );
 }
+export default withRoot(Delivery);

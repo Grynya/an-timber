@@ -1,6 +1,9 @@
-import Button from "@mui/material/Button";
 import * as React from "react";
+import Button from "./Button";
+import theme from "../../style/theme";
 
 export default function BackButton (props){
-    return ( <Button {...props} variant="outlined" size="large" href="/">На головну</Button>)
+    return ( <Button {...props}
+                     sx={{mt: 2, color:theme.palette.secondary.light}}
+                     variant="contained" color="warning" size="large" href="/">На головну</Button>)
 }
