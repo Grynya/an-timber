@@ -14,11 +14,8 @@ function AboutUs() {
     return (
         <React.Fragment>
             <Header/>
-            <Container maxWidth="lg"
-                       sx={{minHeight: "calc(80vh)",
-                           backgroundColor: theme.palette.secondary.light
-            }}>
-                <main>
+            <Container sx={{minHeight: "calc(80vh)", mt: {xs: 10, sm: 10, md: 0, lg: 0, xl: 0}}}>
+            <main>
                     <Grid
                         item
                         xs={12}

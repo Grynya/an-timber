@@ -118,6 +118,7 @@ function Header(props) {
                         </Box>
                         <Box>
                             <Link
+                                sx={{ display: {xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block'}}}
                                 underline="none"
                                 to="/">
                                 <Title/>
@@ -160,7 +161,6 @@ function Header(props) {
                             </HashLink>
                     </Box>
                     <Box sx={{...rightLink,
-
                         display: {xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block'},
                     }}>
                         <Phones/>

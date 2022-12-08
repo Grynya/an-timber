@@ -8,7 +8,7 @@ export default function MoreButton(props) {
     return (
             <Button variant="contained"
                        color='warning'
-                       sx={{mt: 2, color:theme.palette.secondary.light}}
+                       sx={{color:theme.palette.secondary.light}}
                        size="large"
                        onClick={() => {
                            navigate("/product-details", {state: {productIdx: props.idx}})

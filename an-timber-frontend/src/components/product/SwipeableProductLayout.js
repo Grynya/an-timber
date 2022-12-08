@@ -51,7 +51,7 @@ function SwipeableProductLayout(props) {
             top: 0,
             bottom: 0,
             backgroundColor: 'common.black',
-            opacity: 0.35,
+            opacity: 0.25,
             zIndex: -1,
           }}
         />

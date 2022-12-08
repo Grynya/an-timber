@@ -9,7 +9,9 @@ import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import MobileStepper from "@mui/material/MobileStepper";
+import { autoPlay } from 'react-swipeable-views-utils';
 
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 export default function SwipeableProduct() {
     const theme = useTheme();
     const [activeStep, setActiveStep] = React.useState(0);
@@ -27,8 +29,7 @@ export default function SwipeableProduct() {
         setActiveStep(step);
     };
     return (<>
-        <SwipeableViews
-
+        <AutoPlaySwipeableViews
             threshold={10}
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={activeStep}
@@ -45,7 +46,7 @@ export default function SwipeableProduct() {
                                 backgroundPosition: 'center',
                             }}
                         >
-                            <Typography color="inherit" variant="h2" sx={{pt:30}}>
+                            <Typography color="inherit" variant="h2" sx={{pt:30, fontSize:{xs: 40, sm: 40, md: 48, lg: 48, xl: 48} }}>
                                 {product.title}
                             </Typography>
                             <MoreButton idx={idx} />
@@ -53,7 +54,7 @@ export default function SwipeableProduct() {
                         </SwipeableProductLayout>): null}
                 </div>
             ))}
-        </SwipeableViews>
+        </AutoPlaySwipeableViews>
             <MobileStepper
 
                 steps={maxSteps}

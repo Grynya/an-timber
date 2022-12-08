@@ -93,7 +93,6 @@ export default function ContactUsPopUp(props) {
                         Залишіть свої контакти, і ми зв'яжемося з Вами.
                     </DialogContentText>
                     <TextField
-                        autoFocus
                         value={formValue.name}
                         margin="dense"
                         name="name"

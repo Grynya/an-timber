@@ -22,7 +22,7 @@ function ProductValues() {
     <Box component="section"
       sx={{ display: 'flex', justifyContent:'center', flexDirection:'row', overflow: 'hidden', bgcolor: 'secondary.light' }}
     >
-      <Container sx={{ mt: 5, mb: 30, display: 'flex', flexDirection:'row', position: 'relative' }}>
+      <Container maxWidth={false} sx={{ mt: 5, mb: 30, display: 'flex', flexDirection:'row', position: 'relative' }}>
         <Grid container spacing={5}>
           <Grid item xs={12}>
             <SuccessAlert open={openSuccess} setOpen={setOpenSuccess} message={"Ваш запит відправлено у обробку"}/>

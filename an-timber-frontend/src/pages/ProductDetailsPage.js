@@ -16,7 +16,6 @@ import OrderButton from "../components/buttons/OrderButton";
 import Box from "@mui/material/Box";
 import {LinearProgress} from "@mui/material";
 import withRoot from "../style/withRoot";
-import theme from "../style/theme";
 
 function ProductDetailsPage() {
     const {state} = useLocation();
@@ -29,7 +28,7 @@ function ProductDetailsPage() {
     return (
         <React.Fragment>
             <Header/>
-            <Container maxWidth="lg" sx={{minHeight: "calc(80vh)"}}>
+            <Container sx={{minHeight: "calc(80vh)", mt: {xs: 30, sm: 30, md: 0, lg: 0, xl: 0}}}>
                 <main>
                     <ContactUsPopUp open={openPopUp}
                                     setOpen={setOpenPopUp}
