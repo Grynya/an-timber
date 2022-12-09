@@ -4,6 +4,6 @@ import theme from "../../style/theme";
 
 export default function BackButton (props){
     return ( <Button {...props}
-                     sx={{mt: 2, color:theme.palette.secondary.light}}
+                     sx={{color:theme.palette.secondary.light}}
                      variant="contained" color="warning" size="large" href="/">На головну</Button>)
 }

@@ -5,7 +5,7 @@ const rawTheme = createTheme({
   palette: {
     primary: {
       light: '#69696a',
-      main: '#FCF9E9',
+      main: '#FFFFFF',
       dark: '#1e1e1f',
     },
     secondary: {
@@ -78,7 +78,8 @@ const theme = {
     },
     subtitle1: {
       ...rawTheme.typography.subtitle1,
-      fontSize: 18,
+      fontSize: 20,
+      fontWeight: rawTheme.typography.fontWeightLight,
     },
     body1: {
       ...rawTheme.typography.body2,

@@ -44,14 +44,19 @@ const sections = [
     {title: 'Доставка', url: '/delivery'},
     {title: 'Новини', url: '/news'},
 ];
+
 function Phones() {
-    return(<><Box sx={phoneStyle}>
-        <Icon sx={{width: 23, height: 26}}><Vodafone/></Icon>+38-099-601-47-46
-    </Box>
-    <Box sx={phoneStyle}>
-        <Icon sx={{width: 23, height: 26}}><Lifecell/></Icon>+38-093-277-29-37</Box>
-    <Box sx={phoneStyle}>
-        <Icon sx={{width: 23, height: 26}}><Kyivstar/></Icon>+38-068-095-39-49</Box></>)
+    return (
+        <React.Fragment>
+        <Box sx={phoneStyle}>
+            <Icon sx={{width: 23, height: 26}}><Vodafone/></Icon>+38-099-601-47-46
+        </Box>
+        <Box sx={phoneStyle}>
+            <Icon sx={{width: 23, height: 26}}><Lifecell/></Icon>+38-093-277-29-37</Box>
+        <Box sx={phoneStyle}>
+            <Icon sx={{width: 23, height: 26}}><Kyivstar/></Icon>+38-068-095-39-49</Box>
+    </React.Fragment>
+    )
 }
 
 function Header(props) {
@@ -90,13 +95,16 @@ function Header(props) {
 
     return (
         <React.Fragment>
-            <AppBar position="fixed" sx={{
+            <AppBar position="relative" sx={{
                 paddingTop: 6,
                 paddingBottom: 4,
-                borderBottom: 'solid',
+                backgroundColor: theme.palette.primary.main,
                 color: theme.palette.secondary.main
             }}>
-                <Toolbar sx={{display: 'flex', flexDirection: 'row'}}>
+                <Toolbar sx={{
+                    display: 'flex',
+                    flexDirection: 'row'
+                }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -106,23 +114,16 @@ function Header(props) {
                     >
                         <MenuIcon/>
                     </IconButton>
-                    <Box sx={{width: '50%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
+                    <Box sx={{
+                        width: {lg: '50%', xl: '50%'}, display: 'flex',
+                        justifyContent: 'flex-start',
+                        alignItems: 'center'
+                    }}>
                         <Box>
-                            <Link
-                                underline="none"
-                                to="/"
-                                sx={{fontSize: 28}}
-                            >
-                                <Logo/>
-                            </Link>
+                            <HashLink to="/"><Logo/></HashLink>
                         </Box>
-                        <Box>
-                            <Link
-                                sx={{ display: {xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block'}}}
-                                underline="none"
-                                to="/">
-                                <Title/>
-                            </Link>
+                        <Box sx={{display: {xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block'}}}>
+                            <HashLink to="/"><Title/></HashLink>
                         </Box>
                     </Box>
                     <Box sx={{
@@ -135,44 +136,46 @@ function Header(props) {
                         >
                             {sections[0].title}
                         </HashLink>
-                            <HashLink
-                                style={hashLinkStyle}
-                                to={sections[1].url}
-                            >
-                                Про&nbsp;компанію
-                            </HashLink>
-                            <HashLink
-                                style={hashLinkStyle}
-                                to={sections[2].url}
-                            >
-                                {sections[2].title}
-                            </HashLink>
-                            <HashLink
-                                style={hashLinkStyle}
-                                to={sections[3].url}
-                            >
-                                {sections[3].title}
-                            </HashLink>
-                            <HashLink
-                                style={hashLinkStyle}
-                                to={sections[4].url}
-                            >
-                                {sections[4].title}
-                            </HashLink>
+                        <HashLink
+                            style={hashLinkStyle}
+                            to={sections[1].url}
+                        >
+                            Про&nbsp;компанію
+                        </HashLink>
+                        <HashLink
+                            style={hashLinkStyle}
+                            to={sections[2].url}
+                        >
+                            {sections[2].title}
+                        </HashLink>
+                        <HashLink
+                            style={hashLinkStyle}
+                            to={sections[3].url}
+                        >
+                            {sections[3].title}
+                        </HashLink>
+                        <HashLink
+                            style={hashLinkStyle}
+                            to={sections[4].url}
+                        >
+                            {sections[4].title}
+                        </HashLink>
                     </Box>
-                    <Box sx={{...rightLink,
-                        display: {xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block'},
+                    <Box sx={{
+                        ...rightLink,
+                        display: {xs: 'none', sm: 'block', md: 'block', lg: 'block', xl: 'block'}
                     }}>
                         <Phones/>
                     </Box>
                 </Toolbar>
-                <Box sx={{...rightLink,
+                <Box sx={{
+                    ...rightLink,
                     mt: 5,
-                    ml:12,
-                    justifyContent:'start',
-                    alignItems:'start',
-                    flexDirection:'column',
-                    display: {xs: 'flex', sm: 'flex', md: 'none', lg: 'none', xl: 'none'},
+                    ml: 12,
+                    justifyContent: 'start',
+                    alignItems: 'start',
+                    flexDirection: 'column',
+                    display: {xs: 'flex', sm: 'none'},
                 }}>
                     <Phones/>
                 </Box>
@@ -198,7 +201,6 @@ function Header(props) {
                     {drawer}
                 </Drawer>
             </Box>
-            <Toolbar/>
         </React.Fragment>
     );
 }

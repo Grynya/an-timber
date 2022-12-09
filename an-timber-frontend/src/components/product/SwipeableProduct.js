@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Typography from '../../modules/components/Typography';
-import SwipeableProductLayout from './SwipeableProductLayout';
+import {SwipeableProductLayout} from './SwipeableProductLayout';
 import MoreButton from "../buttons/MoreButton";
 import {useTheme} from "@mui/material/styles";
 import SwipeableViews from "react-swipeable-views";
@@ -29,7 +29,7 @@ export default function SwipeableProduct() {
         setActiveStep(step);
     };
     return (<>
-        <AutoPlaySwipeableViews
+            <AutoPlaySwipeableViews
             threshold={10}
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={activeStep}
@@ -44,19 +44,19 @@ export default function SwipeableProduct() {
                                 backgroundImage: product.backgroundImage,
                                 backgroundColor: theme.palette.secondary.main,
                                 backgroundPosition: 'center',
+                                color: theme.palette.primary.main
                             }}
                         >
-                            <Typography color="inherit" variant="h2" sx={{pt:30, fontSize:{xs: 40, sm: 40, md: 48, lg: 48, xl: 48} }}>
+                            <Typography color="inherit" variant="h2" sx={{
+                                fontSize:{xs: 40, sm: 55, md: 55, lg: 70, xl: 70} }}>
                                 {product.title}
                             </Typography>
                             <MoreButton idx={idx} />
-                            <span id="production" style={{marginTop: 200}}></span>
                         </SwipeableProductLayout>): null}
                 </div>
             ))}
         </AutoPlaySwipeableViews>
             <MobileStepper
-
                 steps={maxSteps}
                 sx={{backgroundColor:theme.palette.secondary.light}}
                 position="static"

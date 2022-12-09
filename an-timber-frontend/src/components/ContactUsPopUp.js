@@ -138,6 +138,7 @@ export default function ContactUsPopUp(props) {
                         fullWidth
                         variant="standard"
                         onChange={handleChange}
+                        sx={{color: 'common.black'}}
                     />
                     <FormControlLabel control={<Checkbox value={formValue.isAgreed}
                                                          name={"isAgreed"}

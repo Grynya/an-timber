@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import Markdown from "../components/Markdown";
 import {text} from "../text/text.js"
 import Container from "@mui/material/Container";
@@ -14,7 +13,7 @@ function Delivery() {
     return (
         <React.Fragment>
                 <Header/>
-            <Container sx={{minHeight: "calc(80vh)", mt: {xs: 10, sm: 10, md: 0, lg: 0, xl: 0}}}>
+            <Container sx={{minHeight: "calc(70vh)", pt:2}}>
             <main>
                         <Grid
                             item
@@ -23,8 +22,7 @@ function Delivery() {
                             sx={{
                                 '& .markdown': {
                                     py: 3,
-                                },
-                                pt:20
+                                }
                             }}
                         >
                             <Typography color="inherit" align="center" variant="h4">

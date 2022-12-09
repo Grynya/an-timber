@@ -10,9 +10,7 @@ export default function MoreButton(props) {
                        color='warning'
                        sx={{color:theme.palette.secondary.light}}
                        size="large"
-                       onClick={() => {
-                           navigate("/product-details", {state: {productIdx: props.idx}})
-                       }}
+                       onClick={() => navigate(`/product-details/${props.idx}`, {state: {productIdx: props.idx}})}
                        {...props}
         >Детальніше</Button>
     )
